@@ -20,9 +20,9 @@ function check(username, passwd) {
   // username & passwd are given from koa-user
   // check, always by db search
   return function(fn) {
-    db.query('SELECT * from users where username=' + username, function(err, results) {
-      if (!err) {
-        fn(null, results[0])
+    db.query('SELECT * from users where username=' + username, function(err, result) {
+      if (!err && result.passwd === passwd) {
+        fn(null, result)
         // the second arg expect to be the user object
         // just like {id: 100, name: 'myname', ...}
         // user will be bind on `this`
