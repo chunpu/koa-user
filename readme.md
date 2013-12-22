@@ -9,6 +9,7 @@ npm install koa-user
 ```
 
 Example
+---
 
 ```javascript
 var user = require('koa-user')
